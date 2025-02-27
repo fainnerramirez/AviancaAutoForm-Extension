@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Valores por defecto en formulario de pasajeros avianca",
+    "version": "1.0.0",
+    "description": "Establecer valores por defecto en el formulario de pasajeros en la plataforma avianca.com. El número de pasajeros puede ser n; y puede ser cualquier tipo de pasajero (adultos, jóvenes, niños o bebés).",
+    "icons": {
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "permissions": [
+        "sidePanel"
+    ],
+    "side_panel": {
+        "default_path": "public/sidepanel.html"
+    }
+}
