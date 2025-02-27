@@ -8,10 +8,42 @@
         "48": "images/icon-48.png",
         "128": "images/icon-128.png"
     },
-    "permissions": [
-        "sidePanel"
-    ],
     "side_panel": {
         "default_path": "public/sidepanel.html"
-    }
+    },
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "action": {
+        "default_icon": {
+            "32": "images/icon-32.png",
+            "48": "images/icon-48.png",
+            "128": "images/icon-128.png"
+        },
+        "default_title": "Abrir configuración"
+    },
+    "author": {
+        "email": "fainnerramirez@gmail.com"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.avianca.com/*"
+            ],
+            "css": [
+                "styles/styles.css"
+            ],
+            "js": [
+                "scripts/content-app.js"
+            ],
+            "all_frames": false,
+            "match_origin_as_fallback": false,
+            "match_about_blank": false,
+            "run_at": "document_idle",
+            "world": "ISOLATED"
+        }
+    ],
+    "permissions": [
+        "sidePanel"
+    ]
 }
