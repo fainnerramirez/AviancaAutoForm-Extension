@@ -1,22 +1,10 @@
-(function () {
-    const device = document.querySelector("html").offsetWidth >= 992 ? "des" : "mob";
-    const numScript = "[FB_PASAJEROS_DINÁMICOS]";
-    console.log(numScript);
+class ProcessValuesFormAvianca {
+    constructor(){}
+    getDevice(){
+        return document.querySelector("html").offsetWidth >= 992 ? "des" : "mob";
+    }
 
-    const preload = (maxIntents) => {
-        setTimeout(() => {
-            const element = document.querySelector(".passenger_data");
-            if (element) {
-                handleExtensionChromeAvianca();
-            } else if (maxIntents >= 75) {
-                console.warn(numScript, "Elemento no ha cargado!");
-            } else {
-                preload(maxIntents + 1);
-            }
-        }, 300);
-    };
-
-    const setValuesDefaultPassengers = () => {
+    setValuesDefaultPassengers = () => {
         const elements = document.querySelectorAll(".ui-input");
         Array.from(elements).forEach((element, index) => {
             if (element.tagName === "BUTTON") {
@@ -44,11 +32,22 @@
         document.querySelector("#acceptNewCheckbox").checked = true;
     }
 
-    const handleExtensionChromeAvianca = () => {
+    handleExtensionChromeAvianca = () => {
         document.querySelector("#avianca__extension__button")?.addEventListener("click", () => {
+            console.log("Click en setear valores por defecto en formulario");
             setValuesDefaultPassengers();
         });
     }
 
-    if (device === "des" || device === "mob") preload(0);
-})();
+    Init = () => {
+        console.log("Se inicio el proceso de avianca");
+        const element = document.querySelector(".passenger_data");
+        console.log("Elemento padre extension avianca: ", element);
+        if (element) {
+            handleExtensionChromeAvianca();
+        }
+    }
+}
+
+const app = new ProcessValuesFormAvianca();
+app.Init();

@@ -1,0 +1,50 @@
+.extension__title {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #DA291C;
+}
+
+.extension__description {
+    width: 90%;
+    margin: auto;
+    text-align: left;
+    font-weight: 600;
+}
+
+.avianca__extension__container__button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#avianca__extension__button {
+    color: #ffffff;
+    background-color: #DA291C;
+    border: none;
+    border-radius: 32px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+#avianca__extension__button:hover {
+    background-color: #f21404;
+    transform: scale(1.1);
+}
+
+.extension__container__image {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.extension__image__evolution {
+    background-image: url("./images/logo-evolutivos.svg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100px;
+}
