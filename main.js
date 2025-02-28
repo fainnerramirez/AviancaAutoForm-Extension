@@ -7,7 +7,7 @@
         setTimeout(() => {
             const element = document.querySelector(".passenger_data");
             if (element) {
-                handleValuesDefaultPassengers();
+                handleExtensionChromeAvianca();
             } else if (maxIntents >= 75) {
                 console.warn(numScript, "Elemento no ha cargado!");
             } else {
@@ -16,7 +16,7 @@
         }, 300);
     };
 
-    const handleValuesDefaultPassengers = () => {
+    const setValuesDefaultPassengers = () => {
         const elements = document.querySelectorAll(".ui-input");
         Array.from(elements).forEach((element, index) => {
             if (element.tagName === "BUTTON") {
@@ -38,10 +38,17 @@
                 setTimeout(() => {
                     element.dispatchEvent(eventBlur);
                     Array.from(containers).forEach(e => { e.classList.remove("is-focused") });
-                }, 500);
+                }, 100);
             }
         });
         document.querySelector("#acceptNewCheckbox").checked = true;
     }
+
+    const handleExtensionChromeAvianca = () => {
+        document.querySelector("#avianca__extension__button")?.addEventListener("click", () => {
+            setValuesDefaultPassengers();
+        });
+    }
+
     if (device === "des" || device === "mob") preload(0);
 })();
