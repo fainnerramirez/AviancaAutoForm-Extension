@@ -27,25 +27,21 @@
             else if (element.tagName === "INPUT") {
                 const containers = document.querySelectorAll(".ui-input-container");
                 Array.from(containers).forEach(e => { e.classList.add("is-focused") });
-                const inputs = document.querySelectorAll(".ui-input-container>.ui-input_wrap>input");
-                Array.from(inputs).forEach((element) => {
-                    let eventBlur = new Event("blur");
-                    let eventFocus = new Event("focus");
-                    element.value = element.name === "email" ? "monitoria.digital@avianca.com" : (element.name === "phone_phoneNumberId" ? "123456789" : "Example user");
-                    ['change', 'input'].forEach(event => {
-                        let handleEvent = new Event(event, { bubbles: true, cancelable: false });
-                        element.dispatchEvent(handleEvent);
-                    });
-                    element.dispatchEvent(eventFocus);
-                    setTimeout(() => {
-                        element.dispatchEvent(eventBlur);
-                        Array.from(containers).forEach(e => { e.classList.remove("is-focused") });
-                    }, 500);
+                let eventBlur = new Event("blur");
+                let eventFocus = new Event("focus");
+                element.value = element.name === "email" ? "monitoria.digital@avianca.com" : (element.name === "phone_phoneNumberId" ? "123456789" : "Example user");
+                ['change', 'input'].forEach(event => {
+                    let handleEvent = new Event(event, { bubbles: true, cancelable: false });
+                    element.dispatchEvent(handleEvent);
                 });
+                element.dispatchEvent(eventFocus);
+                setTimeout(() => {
+                    element.dispatchEvent(eventBlur);
+                    Array.from(containers).forEach(e => { e.classList.remove("is-focused") });
+                }, 500);
             }
         });
         document.querySelector("#acceptNewCheckbox").checked = true;
     }
-
     if (device === "des" || device === "mob") preload(0);
 })();
