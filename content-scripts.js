@@ -23,14 +23,13 @@ const setValuesDefaultPassengers = () => {
       }, 100);
     }
   });
-  document.querySelector("#acceptNewCheckbox").checked = true;
+  const fieldAuthoritation = document.querySelector("#acceptNewCheckbox");
+  if(fieldAuthoritation) fieldAuthoritation.checked = true;
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("message enviado desde la chrome: ", message);
+  console.log("Message received: ", message);
   if (message.action === 'setDefaultFormValues') {
-    console.log("Recibido mensaje para establecer valores en el formulario");
-    // Aquí puedes llamar a la función que llena el formulario con los valores predeterminados
     setValuesDefaultPassengers();
   }
 });

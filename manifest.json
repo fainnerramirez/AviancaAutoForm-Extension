@@ -30,9 +30,6 @@
             "matches": [
                 "https://*.avianca.com/*"
             ],
-            "css": [
-                "index.css"
-            ],
             "js": [
                 "content-scripts.js"
             ]
