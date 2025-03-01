@@ -12,7 +12,6 @@ chrome.sidePanel
 chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
   if (!tab.url) return;
   const url = new URL(tab.url);
-
   if (url.origin.includes(AVIANCA_ORIGIN)) {
     await chrome.sidePanel.setOptions({
       tabId,
