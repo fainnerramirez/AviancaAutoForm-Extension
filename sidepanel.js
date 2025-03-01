@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let countValueUsesAutoForm = 0;
-    
+    let countAutoFormUse = 0;
     const getCountUsesStorage = () => {
-        return localStorage.getItem("extension-avianca-autoform");
+        return localStorage.getItem("extension-avianca-autoform") || "0";
     }
+
+    const countUses = document.querySelector(".avianca__count");
+    if(countUses) countUses.textContent = getCountUsesStorage();
 
     const setCountUsesStorage = (countValue = 0) => {
         localStorage.setItem("extension-avianca-autoform", countValue);
-        const countUses = document.querySelector(".avianca__count");
         if(countUses) countUses.textContent = getCountUsesStorage();
     }
 
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (buttonPassenger) {
         buttonPassenger.addEventListener("click", function () {
-            setCountUsesStorage(++countValueUsesAutoForm);
+            setCountUsesStorage(++countAutoFormUse);
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 const tabId = tabs[0].id;
                 chrome.tabs.sendMessage(tabId, { action: 'setDefaultFormPassengerValues' });
