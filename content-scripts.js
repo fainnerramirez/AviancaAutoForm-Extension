@@ -71,9 +71,10 @@ const getValueElement = (element) => {
   return value;
 }
 
-const setValuesDefaultPassengers = () => {
+const setValuesDefaultAutoForm = () => {
   console.log("VALORES SPOR DEFECTO EN PASAJEROS");
-  const elements = document.querySelectorAll(".ui-input");
+  const elements = document.querySelectorAll('.ui-input');
+  console.log("elements: ", elements);
   Array.from(elements).forEach((element, index) => {
     if (element.tagName === "BUTTON") {
       element.click();
@@ -101,18 +102,9 @@ const setValuesDefaultPassengers = () => {
   if (fieldAuthoritation) fieldAuthoritation.checked = true;
 }
 
-const setDefaultValuesPayments = () => {
-  console.log("VALORES POR DEFECTO EN PAGOS");
-  const fatherElement = document.querySelector(".payment-button.payment-button--3DSecure");
-  console.log("fatherElement payment: ", fatherElement);
-}
-
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("Message received: ", {message, sender, sendResponse});
-  if (message.action === 'setDefaultFormPassengerValues') {
-    setValuesDefaultPassengers();
-  }
-  if (message.action === 'setDefaultFormPaymentValues'){
-    setDefaultValuesPayments();
+  console.log("Message received: ", { message, sender, sendResponse });
+  if (message.action === 'setDefaultFormValues') {
+    setValuesDefaultAutoForm();
   }
 });
