@@ -19,7 +19,7 @@
     width: 100%;
 }
 
-#avianca__extension__button {
+#avianca__button {
     color: #ffffff;
     background-color: #DA291C;
     border: none;
@@ -29,7 +29,7 @@
     transition: all .3s ease-in-out;
 }
 
-#avianca__extension__button:hover {
+#avianca__button:hover {
     background-color: #f21404;
     transform: scale(1.1);
 }

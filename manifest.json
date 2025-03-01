@@ -34,7 +34,7 @@
                 "index.css"
             ],
             "js": [
-                "content-app.js"
+                "content-scripts.js"
             ]
         }
     ],
