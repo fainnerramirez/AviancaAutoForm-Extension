@@ -9,27 +9,56 @@
 </head>
 
 <body>
-    <div class="extension__container__image">
-        <div class="extension__image__evolution"></div>
-    </div>
-    <h1 class="extension__title">Avianca Passenger</h1>
-    <p class="extension__description">
-        Esta extensión facilita la personalización del formulario de pasajeros en el sitio web de Avianca (avianca.com).
-        Permite establecer valores predeterminados para el número de pasajeros; incluyendo adultos, jóvenes, niños o bebés. Con solo un clic, podrás optimizar el proceso de
-        reserva, ahorrando tiempo al completar automáticamente los campos del formulario.
-    </p>
-    <div class="avianca__extension__container__button">
-        <button id="avianca__button">
-            Aplicar valores predeterminados
-        </button>
-    </div>
+    <div class="avianca__page">
+        <div class="avianca__header">
+            <h2 class="avianca__title">Avianca AutoForm</h2>
+            <p class="avianca__subtitle">
+                ahorra tiempo en cada reserva y pago
+            </p>
+        </div>
 
-    <div class="footer">
-        <div class="author">
-            © <p id="date"></p> <a href="https://github.com/fainnerramirez" target="_blank">Fainner Ramírez</a>
+        <div class="avianca__card">
+            <div class="avianca__card__title">
+                <h3>Rellenar Formulario</h3>
+                <p class=tooltip"><span class="avianca__count"></span> usos</p>
+            </div>
+            <div class="avianca__actions_container">
+                <div class="avianca__button">
+                    <button id="avianca__action__passenger" class="action__button">
+                        Completar valores en pasajeros
+                    </button>
+                </div>
+                <div class="avianca__button">
+                    <button id="avianca__action__payment" class="action__button">
+                        Completar valores en pagos
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="avianca__card">
+            <div class="avianca__card__title">
+                <h3>Para tener en cuenta</h3>
+            </div>
+            <div class="avianca__card__body">
+                <div class="avianca__card__item">
+                    <div class="tooltip">Tip 1</div>
+                    <p>Soporte para múltiples pasajeros</p>
+                </div>
+                <div class="avianca__card__item">
+                    <div class="tooltip">Tip 2</div>
+                    <p>Funciona en reservas y check-in</p>
+                </div>
+            </div>
+        </div>
+        <div class="avianca__divider"></div>
+        <div class="avianca__footer">
+            <div class="avianca__author">
+                © <p id="date"></p>
+                <p>Evolutivos</p>
+            </div>
         </div>
     </div>
-
     <script src="./sidepanel.js"></script>
 </body>
 

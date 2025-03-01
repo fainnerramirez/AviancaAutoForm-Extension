@@ -1,69 +1,116 @@
-.extension__title {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    color: #DA291C;
+:root {
+    --color-primary: rgb(218, 41, 28);
+    --color-secondary: rgba(218, 41, 28, .5);
+    --color-three: rgba(218, 41, 28, .1);
+    --color-white: #FFFFFF;
+    --color-text: #1b1b1b;
+    --color-hover-button: rgba(218, 41, 28, .8);
+    --color-gray: #eeeeee;
 }
 
-.extension__description {
-    width: 90%;
+body {
+    background-color: var(--color-three);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0px;
+    line-height: 150%;
+}
+
+.avianca__page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.avianca__header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 5px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.avianca__subtitle {
+    color: var(--color-white);
+    text-align: center;
+    font-size: 12px;
+}
+
+.avianca__card {
+    padding: 10px;
+    width: 95%;
     margin: auto;
-    text-align: left;
+    box-sizing: 10px 10px 5px #000000;
+    background-color: var(--color-white);
+    border-radius: 5px;
+}
+
+.tooltip {
+    padding:5px;
+    color: var(--color-primary);
+    background-color: var(--color-three);
+    text-align: center;
+    border-radius: 32px;
+    width: 50px;
     font-weight: 600;
 }
 
-.avianca__extension__container__button {
-    margin-top: 20px;
+.avianca__card__title {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
-#avianca__button {
-    color: #ffffff;
-    background-color: #DA291C;
+.avianca__actions_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.action__button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 8px;
     border: none;
-    border-radius: 32px;
     padding: 12px 24px;
+    width: 100%;
     cursor: pointer;
-    transition: all .3s ease-in-out;
 }
 
-#avianca__button:hover {
-    background-color: #f21404;
-    transform: scale(1.1);
+.action__button:hover {
+    background-color: var(--color-hover-button);
 }
 
-.extension__container__image {
-    width: 70%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.extension__image__evolution {
-    background-image: url("./images/logo-evolutivos.svg");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100px;
-}
-
-
-.footer {
+.avianca__card__body {
     width: 100%;
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.footer .author {
+.avianca__card__item{
     display: flex;
-    justify-content: center;
+    gap: 10px;
     align-items: center;
-    gap: 5px;
+    border-bottom: 1px solid var(--color-gray);
+    padding-bottom: 5px;
 }
 
-.footer .author>a {
-    color: #000000;
+.avianca__divider {
+    border-bottom: 1px solid gray;
+}
+
+.avianca__footer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.avianca__author {
+    display: flex;
+    gap: 5px;
 }
