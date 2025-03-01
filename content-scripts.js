@@ -54,6 +54,23 @@ const getDataRandom = (data = []) => {
   return data[Math.floor(Math.random() * data.length)];
 }
 
+const getValueElement = (element) => {
+  let value = null;
+  if (element.name === "email") {
+    value = getDataRandom(emailsData);
+  }
+  else if (element.name === "phone_phoneNumberId") {
+    value = getDataRandom(phoneNumbersData);
+  }
+  else if (element.id.includes("IdFirstName")) {
+    value = getDataRandom(userNamesData);
+  }
+  else {
+    value = getDataRandom(lastNamesData);
+  }
+  return value;
+}
+
 const setValuesDefaultPassengers = () => {
   const elements = document.querySelectorAll(".ui-input");
   Array.from(elements).forEach((element, index) => {
@@ -67,20 +84,7 @@ const setValuesDefaultPassengers = () => {
       Array.from(containers).forEach(e => { e.classList.add("is-focused") });
       let eventBlur = new Event("blur");
       let eventFocus = new Event("focus");
-      
-      if(element.name === "email"){
-        element.value = getDataRandom(emailsData);
-      }
-      else if(element.name === "phone_phoneNumberId"){
-        element.value = getDataRandom(phoneNumbersData);
-      }
-      else if(element.id.includes("IdFirstName")){
-        element.value = getDataRandom(userNamesData);
-      }
-      else {
-        element.value = getDataRandom(lastNamesData);
-      }
-      
+      element.value = getValueElement(element);
       ['change', 'input'].forEach(event => {
         let handleEvent = new Event(event, { bubbles: true, cancelable: false });
         element.dispatchEvent(handleEvent);
@@ -96,8 +100,8 @@ const setValuesDefaultPassengers = () => {
   if (fieldAuthoritation) fieldAuthoritation.checked = true;
 }
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("Message received: ", message);
+chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+  console.log("Message received: ", {message, sender, sendResponse});
   if (message.action === 'setDefaultFormValues') {
     setValuesDefaultPassengers();
   }

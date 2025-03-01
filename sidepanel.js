@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dateElement = document.querySelector("#date");
-    if(dateElement) dateElement.textContent = new Date().getFullYear();
+    if (dateElement) dateElement.textContent = new Date().getFullYear();
     const button = document.querySelector("#avianca__button");
 
     if (button) {
