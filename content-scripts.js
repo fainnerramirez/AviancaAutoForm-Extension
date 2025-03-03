@@ -25,16 +25,7 @@ lastNamesData = [
 ];
 
 emailsData = [
-  "john_doe123@example.com",
-  "jane_smith89@example.com",
-  "alexander.wilson@domain.com",
-  "maria.gomez22@email.com",
-  "roberto.perez@company.org",
-  "lucia.martinez@domain.com",
-  "david_hernandez12@gmail.com",
-  "carla.jones@yahoo.com",
-  "luis.vega@hotmail.com",
-  "susan.brown@outlook.com"
+ "monitoreo.digital@avianca.com"
 ];
 
 phoneNumbersData = [
@@ -72,7 +63,6 @@ const getValueElement = (element) => {
 }
 
 const setValuesDefaultAutoForm = () => {
-  console.log("VALORES SPOR DEFECTO EN PASAJEROS");
   const elements = document.querySelectorAll('.ui-input');
   console.log("elements: ", elements);
   Array.from(elements).forEach((element, index) => {
