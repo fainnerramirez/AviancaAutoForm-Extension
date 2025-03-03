@@ -11,7 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Message Send");
                 buttonPassenger.textContent = "Generando valores...";
                 timeOutButton = setTimeout(() => {
-                    buttonPassenger.textContent = "Completar valores del formulario";    
+                    const elementI = document.createElement("i");
+                    elementI.classList.add("fa-solid", "fa-user-plus");
+                    const elementText = document.createElement("p");
+                    elementText.textContent = "Completar valores del formulario";
+                    buttonPassenger.textContent = "";
+                    buttonPassenger.appendChild(elementI);
+                    buttonPassenger.appendChild(elementText);
                 }, 2000);
             });
         });

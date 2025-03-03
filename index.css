@@ -126,3 +126,10 @@ h1, h2, h3, h4, h5, h6, p {
     height: 50px;
     width: 50px;
 }
+
+#avianca__action__passenger {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
