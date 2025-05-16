@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Avianca AutoForm",
     "version": "1.0.0",
-    "description": "Establecer valores por defecto en el formulario de pasajeros y check-in en la plataforma avianca.com. El número de pasajeros puede ser n; y puede ser cualquier tipo de pasajero (adultos, jóvenes, niños o bebés).",
+    "description": "Establecer valores por defecto en el formulario de pasajeros de avianca.com. Esta extension ayuda al equipo de pruebas para realizar el llenado de los datos en la pagina de pasajeros de una forma mas agil, para el sitio avianca.com",
     "icons": {
         "32": "images/icon-32.png",
         "48": "images/icon-48.png",

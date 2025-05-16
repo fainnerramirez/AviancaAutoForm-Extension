@@ -1,4 +1,4 @@
-userNamesData = [
+const userNamesData = [
   "john doe",
   "jane smith",
   "alexander wilson",
@@ -11,7 +11,7 @@ userNamesData = [
   "susan brown"
 ];
 
-lastNamesData = [
+const lastNamesData = [
   "Doe",
   "Smith",
   "Wilson",
@@ -24,11 +24,11 @@ lastNamesData = [
   "Brown"
 ];
 
-emailsData = [
- "monitoreo.digital@avianca.com"
+const emailsData = [
+  "monitoreo.digital@avianca.com"
 ];
 
-phoneNumbersData = [
+const phoneNumbersData = [
   "123456",
   "987654",
   "654321",
@@ -47,7 +47,7 @@ const getDataRandom = (data = []) => {
 
 const getValueElement = (element) => {
   let value = null;
-  if (element.name === "email") {
+  if (element.name === "email" || element.name === 'confirmEmail') {
     value = getDataRandom(emailsData);
   }
   else if (element.name === "phone_phoneNumberId") {
@@ -62,14 +62,34 @@ const getValueElement = (element) => {
   return value;
 }
 
+const getButtonAndClickItem = () => {
+  const listOptions = document.querySelector(".ui-dropdown_list");
+  const buttonElement = listOptions?.querySelector(".ui-dropdown_item>button");
+  buttonElement.click();
+}
+
 const setValuesDefaultAutoForm = () => {
   const elements = document.querySelectorAll('.ui-input');
   console.log("elements: ", elements);
   Array.from(elements).forEach((element, index) => {
     if (element.tagName === "BUTTON") {
-      element.click();
-      const listOptions = document.querySelector(".ui-dropdown_list");
-      listOptions?.querySelector(".ui-dropdown_item>button").click();
+      if (element.id === "passengerId") {
+        element.click();
+        console.log("Entro con el id passengerId: ", element);
+        setTimeout(() => {
+          getButtonAndClickItem();
+        }, 1000);
+      }
+      else if (element.id === 'phone_prefixPhoneId') {
+        setTimeout(() => {
+          element.click();
+          getButtonAndClickItem();
+        }, 1000);
+      }
+      else {
+        element.click();
+        getButtonAndClickItem();
+      }
     }
     else if (element.tagName === "INPUT") {
       const containers = document.querySelectorAll(".ui-input-container");
