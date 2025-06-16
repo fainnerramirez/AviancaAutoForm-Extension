@@ -8,8 +8,8 @@ module.exports = (env, argv) => {
 
     return {
         entry: {
-            popup: './src/sidepanel/sidepanel.js',
-            background: './src/workder/service-worker.js',
+            sidepanel: './src/sidepanel/sidepanel.js',
+            background: './src/worker/service-worker.js',
             content: './src/content/content-scripts.js',
         },
 
