@@ -17,6 +17,7 @@ export const createDoc = async (_count = 0) => {
 export const addDoc = async (_count = 0) => {
     try {
         const doc = await addDoc(historyRefs, { count: _count });
+        return doc.id;
     }
     catch (error) {
         console.error("Ha ocurrido un error al agregar un documento | Error: ", error);
@@ -26,14 +27,15 @@ export const addDoc = async (_count = 0) => {
 
 export const updateDoc = async (docId = "undefined", _updatecount = 0) => {
     try {
+        
         const q = query(collection(db, "historyAviancaAutoForm"), where("id", "==", docId));
         const docToUpdate = await getDoc(q);
-        if (docToUpdate.exists()) {
-            await updateDoc(docToUpdate, { count: _updatecount });
-        }
-        else {
+
+        if (!docToUpdate.exists()) {
             throw new Error("UPDATE => No se existe el documento con ID: ", docId);
         }
+
+        await updateDoc(docToUpdate, { count: _updatecount });
     }
     catch (error) {
         console.error("UPDATE => No se pudo actualizar el documento con id: ", id + "| Error: ", error);
