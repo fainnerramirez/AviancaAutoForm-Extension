@@ -68,6 +68,7 @@ const getButtonAndClickItem = () => {
   buttonElement.click();
 }
 
+let countUsage = 0;
 const setValuesDefaultAutoForm = () => {
   const elements = document.querySelectorAll('.ui-input');
   console.log("elements: ", elements);
@@ -75,7 +76,6 @@ const setValuesDefaultAutoForm = () => {
     if (element.tagName === "BUTTON") {
       if (element.id === "passengerId") {
         element.click();
-        console.log("Entro con el id passengerId: ", element);
         setTimeout(() => {
           getButtonAndClickItem();
         }, 1000);
@@ -110,6 +110,8 @@ const setValuesDefaultAutoForm = () => {
   });
   const fieldAuthoritation = document.querySelector("#acceptNewCheckbox");
   if (fieldAuthoritation) fieldAuthoritation.checked = true;
+  console.log("countUsage: ", countUsage++);
+  createHistoryUsage(countUsage++);
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

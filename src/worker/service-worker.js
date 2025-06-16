@@ -1,4 +1,12 @@
-const AVIANCA_ORIGIN = 'https://www.avianca.com';
+const URLS_AVIANCA = [
+  "https://www.avianca.com",
+  "https://nuxqa.avtest.ink",
+  "https://nuxqa2.avtest.ink",
+  "https://nuxqa3.avtest.ink",
+  "https://nuxqa4.avtest.ink",
+  "https://nuxqa5.avtest.ink",
+  "https://nuxqa6.avtest.ink"
+];
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log("La extensión ha sido instalada.");
@@ -12,7 +20,7 @@ chrome.sidePanel
 chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
   if (!tab.url) return;
   const url = new URL(tab.url);
-  if (url.origin.includes(AVIANCA_ORIGIN)) {
+  if (URLS_AVIANCA.includes(url.origin)) {
     await chrome.sidePanel.setOptions({
       tabId,
       path: 'sidepanel.html',
