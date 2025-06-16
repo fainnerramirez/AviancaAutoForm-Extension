@@ -1,4 +1,4 @@
-import { addDoc, collection, count, getDoc, getDocs, setDoc, updateDoc, where } from "firebase/firestore";
+import { addDoc, collection, count, deleteDoc, getDoc, getDocs, setDoc, updateDoc, where } from "firebase/firestore";
 import { db } from "../configuration.mjs";
 
 const historyRefs = collection(db, "historyAviancaAutoForm");
@@ -25,21 +25,41 @@ export const addDoc = async (_count = 0) => {
     }
 }
 
+const getDocById = async (docId = "undefined") => {
+    try {
+        const q = query(collection(db, "historyAviancaAutoForm"), where("id", "==", docId));
+        const docFilter = await getDoc(q);
+        return docFilter;
+    }
+    catch (error) {
+        console.error("FILTER => Ha ocurrido un error al filtrar el documento con id: ", docId);
+        return null;
+    }
+}
+
 export const updateDoc = async (docId = "undefined", _updatecount = 0) => {
     try {
-        
-        const q = query(collection(db, "historyAviancaAutoForm"), where("id", "==", docId));
-        const docToUpdate = await getDoc(q);
 
+        const docToUpdate = getDocById(docId);
         if (!docToUpdate.exists()) {
             throw new Error("UPDATE => No se existe el documento con ID: ", docId);
         }
-
         await updateDoc(docToUpdate, { count: _updatecount });
     }
     catch (error) {
         console.error("UPDATE => No se pudo actualizar el documento con id: ", id + "| Error: ", error);
         throw error;
+    }
+}
+
+export const deleteDocument = async (docID = "undefined") => {
+    
+    try {
+        const docToDelete = getDocById(docID);
+        await deleteDoc(docToDelete);
+    }
+    catch (error) {
+        console.error("DELETE => Ha ocurrido un error al eliminar el documento con id: ", docID);
     }
 }
 
