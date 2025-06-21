@@ -38,8 +38,8 @@ const getDocById = async (docId = "undefined") => {
 }
 
 export const updateDoc = async (docId = "undefined", _updatecount = 0) => {
-    try {
 
+    try {
         const docToUpdate = getDocById(docId);
         if (!docToUpdate.exists()) {
             throw new Error("UPDATE => No se existe el documento con ID: ", docId);
@@ -53,7 +53,7 @@ export const updateDoc = async (docId = "undefined", _updatecount = 0) => {
 }
 
 export const deleteDocument = async (docID = "undefined") => {
-    
+
     try {
         const docToDelete = getDocById(docID);
         await deleteDoc(docToDelete);
@@ -68,8 +68,8 @@ export const getAllDocs = async () => {
         const results = [];
         const collection = await getDocs(historyRefs);
         Array.from(collection).forEach(doc => {
-            results.push(doc.data());
             console.log("Doc: ", { id: doc.id, data: doc.data() });
+            results.push({ id: doc.id, data: doc.data() });
         });
         return results;
     }
